@@ -1,0 +1,8 @@
+{
+  "window": {
+    "navigationStyle": "custom"
+  },
+  "usingComponents": {
+    "login": "/components/login/login"
+  }
+}

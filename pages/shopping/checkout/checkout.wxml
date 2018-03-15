@@ -1,0 +1,197 @@
+<view class="container">
+  <scroll-view class='scrollView'>
+  <view class='switch-box'>
+    <view class='switch-address'>
+      <view class='w-address {{switchAddressflag?"":"active-address"}}' bindtap='switchAddressfn'>立即配送</view>
+      <view class='s-address {{switchAddressflag?"active-address":""}}' bindtap='switchAddressfn'>物流配送</view>
+    </view>
+  </view>
+  <!--送货上门  -->
+  <view class="address-box-1" hidden='{{switchAddressflag}}'>
+    <view class="order-box">
+
+      <view class="order-item">
+        <view class="l">
+          <text class="name">当前酒店：</text>
+        </view>
+        <view class="r">
+          <view class="address-section">
+            <picker bindchange="bindPickerChange" value="{{sectionindex}}" range="{{sectionarray}}">
+              <view class="picker">
+                {{sectionarray[sectionindex]}}
+              </view>
+            </picker>
+          </view>
+
+        </view>
+      </view>
+
+      <view class="order-item">
+        <view class="l">
+          <text class="name"> 配送时间：</text>
+        </view>
+        <view class="r">
+          <view class="section">
+            <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+              <view class="picker">
+                {{multiArray[0][multiIndex[0]]}}{{multiArray[1][multiIndex[1]]}}{{multiArray[2][multiIndex[2]]}}
+              </view>
+            </picker>
+          </view>
+        </view>
+      </view>
+
+      <view class="order-item">
+        <view class="l">
+          <text class="name">房间号：</text>
+        </view>
+        <view class="r">
+          <input type='number' bindblur="roomNotap" placeholder='请输入房间号'></input>
+        </view>
+      </view>
+
+
+      <view class="order-item">
+        <view class="l">
+          <text class="name">收货人：</text>
+        </view>
+        <view class="r">
+          <input placeholder='请输入收货人'  bindblur="roomNametap" ></input>
+        </view>
+      </view>
+
+      <view class="order-item">
+        <view class="l">
+          <text class="name">手机号：</text>
+        </view>
+        <view class="r">
+          <input maxlength="11" type='number'  bindblur="roomPhonetap"  placeholder='请输入手机号'></input>
+        </view>
+      </view>
+
+
+    </view>
+    <!-- <view class='address-room'>
+
+      <view class="address-section">
+        <picker bindchange="bindPickerChange" value="{{sectionindex}}" range="{{sectionarray}}">
+          <view class="picker">
+            当前酒店：{{sectionarray[sectionindex]}}
+          </view>
+        </picker>
+      </view>
+
+     
+
+      <view class="address-roomNum">
+        <view class="ar-lable">房间号:</view>
+       
+          <input type='number' placeholder='请输入房间号'></input>
+       
+      </view>
+
+      <view class="address-roomNum">
+        <view class="ar-lable">收货人:</view>
+      
+          <input placeholder='请输入收货人'></input>
+       
+      </view>
+
+      <view class="address-roomNum">
+        <view class="ar-lable">手机号:</view>
+        <view>
+          <input type='number' placeholder='请输入手机号'></input>
+        </view>
+      </view>
+
+    </view> -->
+  </view>
+  <!--物流配送  -->
+  <view class="address-box" hidden='{{!switchAddressflag}}'>
+    <view class="address-item" bindtap="selectAddress" wx:if="{{checkedAddress.id > 0}}">
+      <view class="l">
+        <text class="name">{{checkedAddress.name}}</text>
+        <text class="default" wx:if="{{checkedAddress.is_default === 1}}">默认</text>
+        <text class="default" wx:else>已选</text>
+      </view>
+      <view class="m">
+        <text class="mobile">{{checkedAddress.mobile}}</text>
+        <text class="address">{{checkedAddress.full_region + checkedAddress.address}}</text>
+      </view>
+      <view class="r">
+        <image src="/static/images/address_right.png"></image>
+      </view>
+    </view>
+    <view class="address-item address-empty" bindtap="addAddress" wx:else>
+      <view class="m">
+        还没有收货地址，去添加
+      </view>
+      <view class="r">
+        <image src="/static/images/address_right.png"></image>
+      </view>
+    </view>
+  </view>
+  <!-- 
+    <view class="coupon-box">
+        <view class="coupon-item">
+            <view class="l">
+                <text class="name">请选择优惠券</text>
+                <text class="txt">{{couponList.length}}张</text>
+            </view>
+            <view class="r">
+                <image src="/static/images/address_right.png"></image>
+            </view>
+        </view>
+    </view> -->
+
+  <view class="goods-items">
+    <view class="item" wx:for="{{checkedGoodsList}}" wx:key="{{item.id}}">
+      <view class="img">
+        <image src="{{item.list_pic_url}}"></image>
+      </view>
+      <view class="info">
+        <view class="t">
+          <text class="name">{{item.goods_name}}</text>
+          <text class="number">x{{item.number}}</text>
+        </view>
+        <view class="m">{{item.goods_specifition_name_value}}</view>
+        <view class="b">￥{{item.retail_price}}</view>
+      </view>
+    </view>
+  </view>
+
+
+  <view class="order-box">
+    <view class="order-item">
+      <view class="l">
+        <text class="name">商品合计</text>
+      </view>
+      <view class="r">
+        <text class="txt">￥{{goodsTotalPrice}}</text>
+      </view>
+    </view>
+    <view class="order-item">
+      <view class="l">
+        <text class="name">运费</text>
+      </view>
+      <view class="r">
+        <text class="txt">￥{{freightPrice}}</text>
+      </view>
+    </view>
+    <view class="order-item no-border">
+      <view class="l">
+        <text class="name">优惠券</text>
+      </view>
+      <view class="r">
+        <text class="txt">-￥{{couponPrice}}</text>
+      </view>
+    </view>
+  </view>
+
+
+  <view class="order-total">
+    <view class="l">实付：￥{{actualPrice}}</view>
+    <view class="r" bindtap="submitOrder">去付款</view>
+  </view>
+  </scroll-view>
+</view>
