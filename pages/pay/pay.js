@@ -47,6 +47,7 @@ Page({
             })
           },
           'fail': function (res) {
+            
             wx.redirectTo({
               url: '/pages/payResult/payResult?status=false',
             })
@@ -55,6 +56,7 @@ Page({
       }
     });
   },
+
   startPay() {
     this.requestPayParam();
   }

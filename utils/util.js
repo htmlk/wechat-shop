@@ -130,6 +130,24 @@ function getUserInfo() {
   });
 }
 
+function getSystemInfo(){
+  return new Promise(function (resolve, reject) {
+    try {
+      var res = wx.getSystemInfoSync()
+
+      if (res) {
+        console.log(res)
+        resolve(res);
+      } else {
+        reject(err);
+      }
+    } catch (e) {
+      // Do something when catch error
+    }
+  })
+ 
+}
+
 function redirect(url) {
 
   //判断页面是否需要登录
@@ -160,6 +178,7 @@ module.exports = {
   checkSession,
   login,
   getUserInfo,
+  getSystemInfo: getSystemInfo
 }
 
 

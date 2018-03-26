@@ -1,0 +1,3 @@
+<!--pages/addcard/addcard.wxml-->
+<button bindtap='addcard'>领取卡券</button>
+<button bindtap='opencard'>领取卡券</button>

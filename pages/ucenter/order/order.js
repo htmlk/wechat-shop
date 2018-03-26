@@ -21,9 +21,19 @@ Page({
       }
     });
   },
-  payOrder(){
+  payOrder(e){
+    console.log(this.data.orderList[e.target.dataset.orderIndex].id)
+    console.log(e.target.dataset.orderIndex)
     wx.redirectTo({
-      url: '/pages/pay/pay',
+I
+    });
+  },
+  payOrder(e){
+
+    console.log(e.target.dataset.orderIndex)
+    var orderinfo = this.data.orderList[e.target.dataset.orderIndex]
+    wx.redirectTo({
+      url: '/pages/pay/pay?orderId=' + orderinfo.id + '&actualPrice=' + orderinfo.actual_price,
     })
   },
   onReady:function(){

@@ -14,6 +14,16 @@ Page({
       orderId: options.orderId || 24,
       status: options.status
     })
+    console.log(options.status)
+  
+      //支付成功
+    if (options.status){
+      util.request(api.sendmsg, { orderId: options.orderId }).then(function (res) {
+        console.log(res)
+      })
+    }
+   
+ 
   },
   onReady: function () {
 

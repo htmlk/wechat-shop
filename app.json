@@ -1,6 +1,8 @@
 {
   "pages": [
+   
     "pages/index/index",
+    "pages/addcard/addcard",
     "pages/catalog/catalog",
     "pages/newGoods/newGoods",
     "pages/hotGoods/hotGoods",

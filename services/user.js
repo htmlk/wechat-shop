@@ -12,13 +12,21 @@ const api = require('../config/api.js');
 function loginByWeixin() {
 
   let code = null;
+  let userData = null;
   return new Promise(function (resolve, reject) {
     return util.login().then((res) => {
       code = res.code;
       return util.getUserInfo();
     }).then((userInfo) => {
       //登录远程服务器
-      util.request(api.AuthLoginByWeixin, { code: code, userInfo: userInfo }, 'POST').then(res => {
+      userData = userInfo
+      
+      return util.getSystemInfo();
+    }).then((getSystemInfo) => {
+      console.log(getSystemInfo)
+     
+      util.request(api.AuthLoginByWeixin, { code: code, getSystemInfo: getSystemInfo, userInfo: userData }, 'POST').then(res => {
+        console.log(res)
         if (res.errno === 0) {
           //存储用户信息
           wx.setStorageSync('userInfo', res.data.userInfo);
@@ -29,11 +37,13 @@ function loginByWeixin() {
           reject(res);
         }
       }).catch((err) => {
+        
         reject(err);
       });
     }).catch((err) => {
-      reject(err);
-    })
+      
+        reject(err);
+      })
   });
 }
 

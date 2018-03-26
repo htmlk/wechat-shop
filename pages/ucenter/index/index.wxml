@@ -26,12 +26,12 @@
         <text class="txt">礼品卡</text>
       </navigator>
     </view> -->
-    <view class="item">
+    <!-- <view class="item">
       <navigator url="/pages/ucenter/collect/collect" class="a">
         <text class="icon address"></text>
         <text class="txt">我的收藏</text>
       </navigator>
-    </view>
+    </view> -->
     <!-- <view class="item">
       <navigator url="/pages/ucenter/footprint/footprint" class="a">
         <text class="icon security"></text>
@@ -50,20 +50,20 @@
         <text class="txt">地址管理</text>
       </navigator>
     </view>
-    <!-- <view class="item">
+    <!-- <view class="item item-bottom">
       <navigator url="url" class="a">
         <text class="icon security"></text>
         <text class="txt">账号安全</text>
       </navigator>
     </view> -->
-    <view class="item">
+    <view class="item item-bottom" bindtap='callphone'>
       <navigator url="url" class="a">
         <text class="icon kefu"></text>
         <text class="txt">联系客服</text>
       </navigator>
     </view>
      
-    <view class="item">
+    <view class="item item-bottom">
       <navigator url="/pages/ucenter/feedback/feedback" class="a">
         <text class="icon feedback"></text>
         <text class="txt">意见反馈</text>

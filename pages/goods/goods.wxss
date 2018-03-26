@@ -643,7 +643,7 @@
 }
 
 .spec-con .name{
-    height: 32rpx;
+   
     margin-bottom: 22rpx;
     font-size: 29rpx;
     color: #333;
@@ -710,3 +710,10 @@
 }
 
 
+.contact-btn{
+  
+  background: #fff!important;
+}
+.contact-btn::after{
+border: none!important;
+}

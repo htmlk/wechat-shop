@@ -134,7 +134,7 @@ Page({
       switchAddressflag: that.data.switchAddressflag,
       hotelName: that.data.sectionarray[that.data.sectionindex],
       hoteltime: that.data.hoteltime,
-      roomNo: that.data.roomNo,
+      roomNo: that.data.roomNo+'房',
       roomName: that.data.roomName,
       roomPhone: that.data.roomPhone
     }

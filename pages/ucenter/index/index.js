@@ -49,6 +49,11 @@ Page({
   onUnload: function () {
     // 页面关闭
   },
+  callphone(){
+    wx.makePhoneCall({
+      phoneNumber: '0755-33225958' //仅为示例，并非真实的电话号码
+    })
+  },
   goLogin(){
     user.loginByWeixin().then(res => {
       this.setData({

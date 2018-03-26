@@ -122,6 +122,10 @@
       </view>
     </view>
   </view> -->
+  <view class='footer'>
+       <text> 逸住商城</text>
+        <text>一间科技提供技术支持</text>
+  </view> 
 </view>
 
 

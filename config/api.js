@@ -59,4 +59,7 @@ module.exports = {
 
   FootprintList: ApiRootUrl + 'footprint/list',  //足迹列表
   FootprintDelete: ApiRootUrl + 'footprint/delete',  //删除足迹
+  
+  CardUrl: ApiRootUrl +'card/index',
+  sendmsg: ApiRootUrl +'pay/sendmsg'
 };

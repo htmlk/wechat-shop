@@ -378,3 +378,15 @@
   width: 70rpx;
   height: 70rpx;
 }
+
+.footer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  
+  height: 300rpx;
+}
+.footer text{
+  color: #ccc;
+}
