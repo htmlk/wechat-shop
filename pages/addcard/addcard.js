@@ -17,6 +17,44 @@ Page({
   onLoad: function (options) {
   
   },
+  scancodefn(){
+    wx.scanCode({
+      onlyFromCamera: true,
+      scanType: [],
+      success: function (res) {
+        wx.request({
+          url: 'https://shop.htmlk.cn/admin/card/consumeCode?code='+res.result,
+          success:function(res){
+            console.log(res)
+            if(res.data.errno==0&&!res.data.data.code){
+              wx.showToast({
+                title: '核销成功',
+              })
+            }else{
+              wx.showToast({
+                title: res.data.data.code+'',
+              })
+            }
+            
+          }
+        })
+        
+      },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
+  soter:function(){
+    wx.checkIsSupportSoterAuthentication({
+      success(res) {
+        console.log(res)
+        // res.supportMode = [] 不具备任何被SOTER支持的生物识别方式
+        // res.supportMode = ['fingerPrint'] 只支持指纹识别
+        // res.supportMode = ['fingerPrint', 'facial'] 支持指纹识别和人脸识别
+      }
+    })
+  },
+
   addcard:function(){
     var userid=wx.getStorageSync('userInfo').id
     console.log(userid)

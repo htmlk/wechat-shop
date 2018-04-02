@@ -1,3 +1,5 @@
 <!--pages/addcard/addcard.wxml-->
 <button bindtap='addcard'>领取卡券</button>
-<button bindtap='opencard'>领取卡券</button>
+<button bindtap='opencard'>打开卡券</button>
+<button bindtap='soter'>soter</button>
+<button bindtap='scancodefn'>打开扫一扫</button>

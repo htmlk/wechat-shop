@@ -14,6 +14,23 @@ Page({
   onReady: function () {
 
   },
+  yizhu:function(){
+    wx.navigateToMiniProgram({
+      appId: 'wx3f5abc73af4780d4',
+      path: 'pages/home/home',
+      extraData: {
+        foo: 'bar'
+      },
+      envVersion: 'release',
+      success(res) {
+        console.log(res)
+        wx.switchTab({
+          url: '/pages/index/index',
+        })
+        // 打开成功
+      }
+    })
+  },
   openSetting:function(){
     var _that=this
     wx.openSetting({

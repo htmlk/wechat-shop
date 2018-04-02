@@ -151,10 +151,11 @@
       <button wx:if="{{!openAttr}}" open-type="contact" class='contact-btn' send-message-path="/pages/goods/goods?id={{goods.id}}" show-message-card="true">客服</button>
       <image wx:else class="icon" src="{{ collectBackImage }}"></image>
     </view>
-    <view class="l l-cart">
+
+    <view class="l l-cart" bindtap="openCartPage">
       <view class="box">
         <text class="cart-count">{{cartGoodsCount}}</text>
-        <image bindtap="openCartPage" class="icon" src="/static/images/ic_menu_shoping_nor.png"></image>
+        <image  class="icon" src="/static/images/ic_menu_shoping_nor.png"></image>
 
       </view>
     </view>
