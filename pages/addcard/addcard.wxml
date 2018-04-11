@@ -3,3 +3,4 @@
 <button bindtap='opencard'>打开卡券</button>
 <button bindtap='soter'>soter</button>
 <button bindtap='scancodefn'>打开扫一扫</button>
+<button bindtap='socket'>socket</button>

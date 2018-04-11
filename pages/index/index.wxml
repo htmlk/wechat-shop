@@ -1,5 +1,21 @@
 <!--index.wxml-->
 <view class="container">
+  <view class="search">
+    <view class='scan' bindtap='scanfn'>
+      <image src='../../static/images/scan.png'></image>
+    </view>
+    <navigator url="/pages/search/search" class="input">
+      <image class="icon"></image>
+      <text class="txt">挑选你想要的好物</text>
+    </navigator>
+    <view class='scan' bindtap='scanfn'>
+      <button class='contactbtn' open-type="contact" class='contact-btn'>
+        <image src='../../static/images/msg.png'></image>
+      </button>
+    </view>
+  </view>
+
+  <view class='txtbanner'>美好的生活并没有那么贵</view>
   <swiper class="banner" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
     <swiper-item wx:for="{{banner}}" wx:key="{{item.id}}">
       <navigator url="{{item.link}}">
@@ -51,7 +67,7 @@
         </navigator>
       </view>
     </view>
-  </view> -->
+  </view>  -->
   <view class="a-section a-popular" wx:if="{{hotGoods.length > 0}}">
     <view class="h">
       <view>
@@ -123,14 +139,10 @@
     </view>
   </view> -->
   <view class='footer'>
-       <text> 逸住商城</text>
-        <text>一间科技提供技术支持</text>
-  </view> 
+    <text> 逸住商城</text>
+    <text>一间科技提供技术支持</text>
+  </view>
 </view>
 
 
-<login id="login"
-  title='逸住商城'
-  content='你已经拒绝用户授权，请立即打开用户信息'
-  confirmText='前往设置'
-  bind:confirmEvent="_confirmEvent"></login>
+<login id="login" title='逸住商城' content='你已经拒绝用户授权，请立即打开用户信息' confirmText='前往设置' bind:confirmEvent="_confirmEvent"></login>

@@ -23,10 +23,10 @@ function loginByWeixin() {
       
       return util.getSystemInfo();
     }).then((getSystemInfo) => {
-      console.log(getSystemInfo)
+     
      
       util.request(api.AuthLoginByWeixin, { code: code, getSystemInfo: getSystemInfo, userInfo: userData }, 'POST').then(res => {
-        console.log(res)
+       
         if (res.errno === 0) {
           //存储用户信息
           wx.setStorageSync('userInfo', res.data.userInfo);

@@ -21,6 +21,22 @@ Page({
       path: '/pages/index/index'
     }
   },
+  onPullDownRefresh: function () {
+    this.getIndexData();
+    wx.stopPullDownRefresh()
+  },
+  scanfn:function(){
+    wx.scanCode({
+      success: (res) => {
+        console.log(res)
+        if(res.scanType=='WX_CODE'){
+          wx.navigateTo({
+            url: '/' +res.path
+          })
+        }
+      }
+    })
+  },
   showDialog() {
     this.login.showlogin();
   },

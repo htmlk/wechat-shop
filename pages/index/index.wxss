@@ -1,6 +1,73 @@
+
+.scan button{
+  padding: 0!important;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.scan button::after{
+border: none!important;
+}
+.txtbanner{
+  height: 80rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  color: #ccc;
+}
+.search {
+  height: 88rpx;
+  width: 100%;
+ 
+  background: #fff;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99
+}
+
+.search .input {
+  width: 690rpx;
+  height: 56rpx;
+  background: #ededed;
+  border-radius: 8rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search .icon {
+  background: url(http://yanxuan.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/search2-2fb94833aa.png) center no-repeat;
+  background-size: 100%;
+  width: 28rpx;
+  height: 28rpx;
+}
+
+.search .txt {
+  height: 42rpx;
+  line-height: 42rpx;
+  color: #666;
+  padding-left: 10rpx;
+  font-size: 30rpx;
+}
+.scan{
+   padding: 0 20rpx;
+   display: flex;
+   justify-content: center;
+   align-items: center
+}
+.scan image{
+  width: 40rpx;
+  height: 40rpx;
+}
 .banner {
   width: 750rpx;
   height: 417rpx;
+  
 }
 
 .banner image {
